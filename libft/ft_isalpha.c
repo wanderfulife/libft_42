@@ -1,16 +1,16 @@
 #include <stdio.h>
+#include "ft_isupper.c"
+#include "ft_islower.c"
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-			return (1);
-	return (0);
+	return (ft_isupper(c) || ft_islower(c));
 }
-
-
 
 int main(void)
 {
-	printf("%d",ft_isalpha(5));
+	printf("%d",ft_isalpha('K'));
+	printf("%d",ft_isalpha('k'));
+	printf("%d",ft_isalpha(0));
 	return (0);
 }
