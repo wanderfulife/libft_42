@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "ft_isdigit.c"
 #include "ft_isalpha.c"
 

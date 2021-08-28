@@ -1,14 +1,4 @@
-#include <stdlib.h>
-
-int	strlength(char *str)
-{
-	int	w;
-
-	w = 0;
-	while (str[w] != '\0')
-		w++;
-	return (w);
-}
+#include "ft_strlen"
 
 char	*ft_strdup(char *src)
 {
@@ -17,7 +7,7 @@ char	*ft_strdup(char *src)
 	int		j;
 
 	index = 0;
-	j = strlength(src);
+	j = ft_strlen(src);
 	string = malloc(sizeof(char) * j);
 	if (string == NULL)
 	{
