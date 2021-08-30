@@ -1,4 +1,4 @@
-#include "ft_strlen"
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {

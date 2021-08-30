@@ -1,18 +1,20 @@
-size_t	strlcat(char *dst, const char *src, size_t size)
-{
-	size_t	i;
-	size_t	dsize;
+#include "libft.h"
 
-	dsize = 0;
-	while (dst[dsize] != '\0' && dsize < size)
-		dsize++;
-	i = dsize;
-	while (src[dsize - i] && dsize + 1 < size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	index;
+	size_t	destindex;
+
+	destindex = 0;
+	while (dst[destindex] && destindex < size)
+		destindex++;
+	index = destindex;
+	while (src[destindex - index] && destindex + 1 < size)
 	{
-		dst[dsize] = src[dsize - i];
-		dsize++;
+		dst[destindex] = src[destindex - index];
+		destindex++;
 	}
-	if (i < size)
-		dst[dsize] = '\0';
-	return (i + ft_strlen(src));
+	if (index < size)
+		dst[destindex] = '\0';
+	return (index + ft_strlen(src));
 }

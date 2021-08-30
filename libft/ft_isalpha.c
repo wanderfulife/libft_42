@@ -1,5 +1,4 @@
-#include "ft_isupper.c"
-#include "ft_islower.c"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
