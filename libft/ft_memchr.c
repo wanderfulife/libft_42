@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/10 14:41:45 by jwander          ###   ########.fr       */
+/*   Created: 2021/09/15 10:04:49 by jwander           #+#    #+#             */
+/*   Updated: 2021/09/15 10:04:54 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *s, int c, size_t len)
+void	*memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*str;
 
-	str = (unsigned char *)s;
-	while (len--)
-		*str++ = (unsigned char)c;
-	return (s);
+	str = (unsigned char *) s;
+	while (n--)
+	{
+		if (*str == c)
+			return (str);
+		if (n)
+			str++;
+	}
+	return (NULL);
 }
