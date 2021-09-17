@@ -6,13 +6,15 @@
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/10 14:41:45 by jwander          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:53:33 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(char c)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-	if (ft_isupper(c))
+	if (c >= 'A' && c <= 'Z')
 		return (c + 32);
 	return (c);
 }

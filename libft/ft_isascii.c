@@ -6,11 +6,13 @@
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/10 14:41:45 by jwander          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:50:46 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(char c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 0177);
 }

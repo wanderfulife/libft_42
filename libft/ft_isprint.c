@@ -6,11 +6,13 @@
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/10 14:41:45 by jwander          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:51:13 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(char c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 126);
 }

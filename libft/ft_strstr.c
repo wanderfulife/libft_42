@@ -6,9 +6,11 @@
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/10 14:41:45 by jwander          ###   ########.fr       */
+/*   Updated: 2021/09/17 12:41:33 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strstr(char *str, char *to_find)
 {
