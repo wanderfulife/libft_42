@@ -6,7 +6,7 @@
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/18 15:55:14 by jwander          ###   ########.fr       */
+/*   Updated: 2021/09/18 18:32:50 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 char	*ft_strdup(const char *src)
 {
-	char	*string;
-	int		index;
-	int		j;
+	char	*copy;
+	size_t	index;
 
-	index = 0;
-	j = ft_strlen(src);
-	string = malloc(sizeof(char) * j);
-	if (string == NULL)
-	{
+	copy = malloc(sizeof(char) * ft_strlen(src) + 1);
+	if (!copy)
 		return (NULL);
-	}
-	while (src[index] != '\0')
+	index = 0;
+	while (src[index])
 	{
-		string[index] = src[index];
+		copy[index] = src[index];
 		index++;
 	}
-	string[index] = '\0';
-	return (string);
+	copy[index] = '\0';
+	return (copy);
 }

@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 16:38:36 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/18 17:37:25 by jwander          ###   ########.fr       */
+/*   Created: 2021/09/18 18:58:37 by jwander           #+#    #+#             */
+/*   Updated: 2021/09/18 19:18:01 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	checker(char s, const char *set)
 {
-	size_t	i;
-	size_t	j;
-	size_t	size;
+	int	i;
 
 	i = 0;
-	size = 0;
-	while (needle[size])
-		size++;
-	if (size == 0)
-		return ((char *)haystack);
-	while (haystack[i])
+	while (set[i])
 	{
-		j = 0;
-		if (haystack[i] == needle[j])
-		{
-			while (haystack[i + j] == needle[j] && (i + j) < len)
-			{
-				if (j == size - 1)
-					return ((char *)haystack + i);
-				j++;
-			}
-		}
+		if (set[i] == s)
+			return (1);
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	index;
+	size_t	start;
+	size_t	len;
+
+	index = 0;
+	while (checker(s1[index], set) == 1)
+		index++;
+	start = index;
+	while (s1[index])
+		index++;
+	index--;
+	while (checker(s1[index], set) == 1)
+		index--;
+	len = index - start + 1;
+	return (ft_substr(s1, start, len));
 }

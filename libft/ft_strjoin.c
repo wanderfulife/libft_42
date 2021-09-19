@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwander <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/10 14:41:45 by jwander           #+#    #+#             */
-/*   Updated: 2021/09/18 18:25:46 by jwander          ###   ########.fr       */
+/*   Created: 2021/09/18 18:41:03 by jwander           #+#    #+#             */
+/*   Updated: 2021/09/18 18:57:36 by jwander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	return (c == ' ' || c == '\n' || c == '\t'
-		|| c == '\v' || c == '\f' || c == '\r');
-}
+	char	*newstr;
+	size_t	s1len;
+	size_t	s2len;
 
-int	ft_atoi(const char *str)
-{
-	int	neg;
-	int	result;
-
-	neg = 1;
-	result = 0;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-')
-		neg = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (ft_isdigit(*str))
-		result = (result * 10) + (*str++ - '0');
-	return (result * neg);
+	if (!s1 || !s2)
+		return (NULL);
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	newstr = malloc(sizeof(char) * (s1len + s2len + 1));
+	if (!newstr)
+		return (NULL);
+	ft_strlcpy(newstr, s1, s1len + 1);
+	ft_strlcat(newstr + s1len, s2, s2len + 1);
+	return (newstr);
 }
