@@ -1,19 +1,10 @@
+NAME	= libft.a
+
 CFLAGS	= -Wall -Wextra -Werror -c
 
-NAME	= libft.a
-HEAD	= libft.h
 FILES	= ft_memset.c \
 		ft_bzero.c \
 		ft_calloc.c \
-		ft_lstadd_back.c \
-		ft_lstadd_front.c \
-		ft_lstclear.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
-		ft_lstlast.c \
-		ft_lstmap.c \
-		ft_lstnew.c \
-		ft_lstsize.c \
 		ft_memcpy.c \
 		ft_memmove.c \
 		ft_memchr.c \
@@ -46,20 +37,40 @@ FILES	= ft_memset.c \
 		ft_isprint.c \
 		ft_itoa.c \
 
+FILES_B	= ft_lstnew.c \
+		  ft_lstsize.c \
+		  ft_lstlast.c \
+		  ft_lstiter.c \
+		  ft_lstdelone.c \
+		  ft_lstclear.c \
+		  ft_lstadd_front.c \
+		  ft_lstadd_back.c \
+		  ft_lstmap.c \
+
+
 OBJ	= $(FILES:.c=.o)
+OBJ_B = $(FILES_B:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
+bonus: $(OBJ) $(OBJ_B)
+	ar rcs $(NAME) $(OBJ) $(OBJ_B)
+
 $(OBJ): $(FILES)
 	gcc $(CFLAGS) $(FILES)
 
+$(OBJ_B): $(FILES_B)
+	gcc $(CFLAGS) $(FILES_B)
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_B)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
+.PHONY: bonus clean fclean all re
