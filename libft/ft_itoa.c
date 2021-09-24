@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		str[0] = '-';
-		nb = (unsigned int)-n;
+		nb = (unsigned int) -n;
 	}
 	else
 		nb = (unsigned int)n;
